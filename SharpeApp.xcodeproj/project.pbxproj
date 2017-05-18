@@ -16,6 +16,9 @@
 		F8D236F41ECDA2E900D19043 /* ChatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8D236F21ECDA2E900D19043 /* ChatCell.xib */; };
 		F8D236F91ECDA91E00D19043 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D236F71ECDA91E00D19043 /* UserCell.swift */; };
 		F8D236FA1ECDA91E00D19043 /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8D236F81ECDA91E00D19043 /* UserCell.xib */; };
+		F8D236FD1ECDAF7D00D19043 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D236FB1ECDAF7D00D19043 /* UsersViewController.swift */; };
+		F8D236FE1ECDAF7D00D19043 /* UsersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8D236FC1ECDAF7D00D19043 /* UsersViewController.xib */; };
+		F8D237001ECDB09D00D19043 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D236FF1ECDB09D00D19043 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,9 @@
 		F8D236F21ECDA2E900D19043 /* ChatCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatCell.xib; sourceTree = "<group>"; };
 		F8D236F71ECDA91E00D19043 /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		F8D236F81ECDA91E00D19043 /* UserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
+		F8D236FB1ECDAF7D00D19043 /* UsersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
+		F8D236FC1ECDAF7D00D19043 /* UsersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UsersViewController.xib; sourceTree = "<group>"; };
+		F8D236FF1ECDB09D00D19043 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +78,9 @@
 				F8D236F21ECDA2E900D19043 /* ChatCell.xib */,
 				F8D236F71ECDA91E00D19043 /* UserCell.swift */,
 				F8D236F81ECDA91E00D19043 /* UserCell.xib */,
+				F8D236FB1ECDAF7D00D19043 /* UsersViewController.swift */,
+				F8D236FC1ECDAF7D00D19043 /* UsersViewController.xib */,
+				F8D236FF1ECDB09D00D19043 /* User.swift */,
 			);
 			path = SharpeApp;
 			sourceTree = "<group>";
@@ -136,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8D236DC1ECD9AD000D19043 /* LaunchScreen.storyboard in Resources */,
+				F8D236FE1ECDAF7D00D19043 /* UsersViewController.xib in Resources */,
 				F8D236F41ECDA2E900D19043 /* ChatCell.xib in Resources */,
 				F8D236D91ECD9AD000D19043 /* Assets.xcassets in Resources */,
 				F8D236D71ECD9AD000D19043 /* Main.storyboard in Resources */,
@@ -152,6 +162,8 @@
 			files = (
 				F8D236F91ECDA91E00D19043 /* UserCell.swift in Sources */,
 				F8D236F31ECDA2E900D19043 /* ChatCell.swift in Sources */,
+				F8D237001ECDB09D00D19043 /* User.swift in Sources */,
+				F8D236FD1ECDAF7D00D19043 /* UsersViewController.swift in Sources */,
 				F8D236E51ECD9B8700D19043 /* BaseCell.swift in Sources */,
 				F8D236D21ECD9AD000D19043 /* AppDelegate.swift in Sources */,
 			);
