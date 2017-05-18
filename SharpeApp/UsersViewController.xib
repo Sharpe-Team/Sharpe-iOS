@@ -12,7 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UsersViewController" customModule="SharpeApp" customModuleProvider="target">
             <connections>
                 <outlet property="searchBar" destination="xVC-Cg-q4b" id="URK-4K-MAt"/>
-                <outlet property="usersTableView" destination="fOq-h2-uP0" id="08H-tl-utj"/>
+                <outlet property="tableView" destination="fOq-h2-uP0" id="IDD-g7-OZz"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -33,7 +33,7 @@
                 </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-            <point key="canvasLocation" x="33.5" y="54.5"/>
+            <point key="canvasLocation" x="-245" y="30"/>
         </view>
     </objects>
 </document>

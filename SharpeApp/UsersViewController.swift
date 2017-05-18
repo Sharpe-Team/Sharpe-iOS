@@ -8,9 +8,10 @@
 
 import UIKit
 
-class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+class UsersViewController: UIViewController, UITableViewDelegate, UISearchBarDelegate {
 
-	@IBOutlet weak var usersTableView: UITableView!
+	@IBOutlet weak var tableView: UITableView!
+	
 	@IBOutlet weak var searchBar: UISearchBar!
 	
 	var users: [User] = []
@@ -20,6 +21,13 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+		filteredUsers.append(contentsOf: users)
+		
+		self.tableView.delegate = self
+		self.tableView.dataSource = self as? UITableViewDataSource
+		self.searchBar.delegate = self
+		
+		self.tableView.register(UserCell.classForCoder(), forCellReuseIdentifier: "userCell")
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,8 +46,33 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     */
 
+	func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+		if (searchText.isEmpty) {
+			self.filteredUsers = []
+			self.filteredUsers.append(contentsOf: self.users)
+		} else {
+			self.filteredUsers = self.users.filter({ (user: User) in
+				return (user.firstname?.contains(searchText))!
+			})
+		}
+		self.tableView.reloadData()
+	}
+	
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return self.filteredUsers.count
+	}
+	
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		let cell: UserCell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath) as! UserCell
+		
+		cell.labelUser?.text = self.filteredUsers[indexPath.row].firstname
+		return cell
+	}
+	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		let user = self.filteredUsers[indexPath.row]
+		let userController = ChatController(nibName: "ChatController", bundle: nil, user: User)
 		
-		
+		self.navigationController?.pushViewController(userController, animated: true)
 	}
 }
