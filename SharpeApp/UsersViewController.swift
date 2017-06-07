@@ -20,14 +20,20 @@ class UsersViewController: UIViewController, UITableViewDelegate, UISearchBarDel
     override func viewDidLoad() {
         super.viewDidLoad()
 
+		for i in 0 ..< 5 {
+			self.users.append(User(firstname: "Prénom " + String(i), lastname: "Nom " + String(i), email: "toto" + String(i) + "@lala.fr"))
+		}
+		
         // Do any additional setup after loading the view.
-		filteredUsers.append(contentsOf: users)
+		self.filteredUsers.append(contentsOf: users)
 		
 		self.tableView.delegate = self
 		self.tableView.dataSource = self as? UITableViewDataSource
 		self.searchBar.delegate = self
 		
 		self.tableView.register(UserCell.classForCoder(), forCellReuseIdentifier: "userCell")
+		
+		self.tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -62,7 +68,7 @@ class UsersViewController: UIViewController, UITableViewDelegate, UISearchBarDel
 		return self.filteredUsers.count
 	}
 	
-	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+	@nonobjc func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell: UserCell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath) as! UserCell
 		
 		cell.labelUser?.text = self.filteredUsers[indexPath.row].firstname
@@ -70,8 +76,8 @@ class UsersViewController: UIViewController, UITableViewDelegate, UISearchBarDel
 	}
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		let user = self.filteredUsers[indexPath.row]
-		let userController = ChatController(nibName: "ChatController", bundle: nil, user: User)
+		let user: User = self.filteredUsers[indexPath.row]
+		let userController = ChatViewController(nibName: "ChatViewController", bundle: nil, user: user)
 		
 		self.navigationController?.pushViewController(userController, animated: true)
 	}

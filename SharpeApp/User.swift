@@ -13,4 +13,10 @@ class User: NSObject {
 	var lastname: String?
 	var email: String?
 	var pictureUrl: String?
+	
+	init(firstname: String, lastname: String, email: String) {
+		self.firstname = firstname
+		self.lastname = lastname
+		self.email = email
+	}
 }
