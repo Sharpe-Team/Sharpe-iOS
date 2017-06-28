@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		EC9980681F039C5A00D466EF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9980661F039C5A00D466EF /* LoginViewController.swift */; };
 		EC9980691F039C5A00D466EF /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC9980671F039C5A00D466EF /* LoginViewController.xib */; };
+		EC99806B1F03A8E900D466EF /* LoginRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC99806A1F03A8E900D466EF /* LoginRetriever.swift */; };
 		F812231C1EE8320C00813736 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F812231A1EE8320C00813736 /* ChatViewController.swift */; };
 		F812231D1EE8320C00813736 /* ChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F812231B1EE8320C00813736 /* ChatViewController.xib */; };
 		F81223371EE8465900813736 /* SocketAckEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F812231F1EE8465900813736 /* SocketAckEmitter.swift */; };
@@ -57,6 +58,7 @@
 /* Begin PBXFileReference section */
 		EC9980661F039C5A00D466EF /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EC9980671F039C5A00D466EF /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		EC99806A1F03A8E900D466EF /* LoginRetriever.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginRetriever.swift; sourceTree = "<group>"; };
 		F812231A1EE8320C00813736 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		F812231B1EE8320C00813736 /* ChatViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatViewController.xib; sourceTree = "<group>"; };
 		F812231F1EE8465900813736 /* SocketAckEmitter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketAckEmitter.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				F812231B1EE8320C00813736 /* ChatViewController.xib */,
 				EC9980661F039C5A00D466EF /* LoginViewController.swift */,
 				EC9980671F039C5A00D466EF /* LoginViewController.xib */,
+				EC99806A1F03A8E900D466EF /* LoginRetriever.swift */,
 			);
 			path = SharpeApp;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				F8D236F91ECDA91E00D19043 /* UserCell.swift in Sources */,
 				F81223491EE8465900813736 /* SocketPacket.swift in Sources */,
 				F8D236F31ECDA2E900D19043 /* ChatCell.swift in Sources */,
+				EC99806B1F03A8E900D466EF /* LoginRetriever.swift in Sources */,
 				F8D237001ECDB09D00D19043 /* User.swift in Sources */,
 				F81223381EE8465900813736 /* SocketAckManager.swift in Sources */,
 				F812233E1EE8465900813736 /* SocketEnginePollable.swift in Sources */,

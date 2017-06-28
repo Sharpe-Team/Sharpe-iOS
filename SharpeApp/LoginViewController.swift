@@ -13,6 +13,7 @@ class LoginViewController: UIViewController {
     @IBOutlet var loginTextView: UITextField!
     @IBOutlet var passwordTextView: UITextField!
     @IBOutlet var connectionBtn: UIButton!
+    @IBOutlet var errorLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,15 +26,26 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func handleConnection(_ sender: Any) {
+        let username = self.loginTextView.text
+        let password = self.passwordTextView.text
+        
+        let save = self // Useless ? Anonym function like Java ?
+        
+        if(username != "" && password != "") {
+            LoginRetriever().login(username: username!, password: password!, callback: { (isConnected) in
+                
+                if(isConnected) {
+                    let usersController = UsersViewController()
+                    save.navigationController?.pushViewController(usersController, animated: true)
+                }
+                else {
+                    save.errorLabel.text = "Connection error"
+                }
+            })
+        }
+        else {
+            self.errorLabel.text = "Please complete all fields"
+        }
     }
-    */
-
 }
