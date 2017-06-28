@@ -38,6 +38,8 @@
 		F88B4DAB1F039FE500AA9545 /* favicon.png in Resources */ = {isa = PBXBuildFile; fileRef = F88B4DA71F039FE500AA9545 /* favicon.png */; };
 		F88B4DAC1F039FE500AA9545 /* font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F88B4DA81F039FE500AA9545 /* font.ttf */; };
 		F88B4DAD1F039FE500AA9545 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = F88B4DA91F039FE500AA9545 /* logo.png */; };
+		F88B4DB21F03A84500AA9545 /* UserRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88B4DB11F03A84500AA9545 /* UserRetriever.swift */; };
+		F88B4DB41F03AABD00AA9545 /* AbstractRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88B4DB31F03AABD00AA9545 /* AbstractRetriever.swift */; };
 		F8D236D21ECD9AD000D19043 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D236D11ECD9AD000D19043 /* AppDelegate.swift */; };
 		F8D236D71ECD9AD000D19043 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8D236D51ECD9AD000D19043 /* Main.storyboard */; };
 		F8D236D91ECD9AD000D19043 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8D236D81ECD9AD000D19043 /* Assets.xcassets */; };
@@ -84,6 +86,8 @@
 		F88B4DA71F039FE500AA9545 /* favicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = favicon.png; path = Resources/favicon.png; sourceTree = "<group>"; };
 		F88B4DA81F039FE500AA9545 /* font.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = font.ttf; path = Resources/font.ttf; sourceTree = "<group>"; };
 		F88B4DA91F039FE500AA9545 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = Resources/logo.png; sourceTree = "<group>"; };
+		F88B4DB11F03A84500AA9545 /* UserRetriever.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRetriever.swift; sourceTree = "<group>"; };
+		F88B4DB31F03AABD00AA9545 /* AbstractRetriever.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractRetriever.swift; sourceTree = "<group>"; };
 		F8D236CE1ECD9AD000D19043 /* SharpeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SharpeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8D236D11ECD9AD000D19043 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8D236D61ECD9AD000D19043 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -198,6 +202,8 @@
 				F8D236FF1ECDB09D00D19043 /* User.swift */,
 				F812231A1EE8320C00813736 /* ChatViewController.swift */,
 				F812231B1EE8320C00813736 /* ChatViewController.xib */,
+				F88B4DB11F03A84500AA9545 /* UserRetriever.swift */,
+				F88B4DB31F03AABD00AA9545 /* AbstractRetriever.swift */,
 			);
 			path = SharpeApp;
 			sourceTree = "<group>";
@@ -285,6 +291,8 @@
 				F812233C1EE8465900813736 /* SocketEngineClient.swift in Sources */,
 				F81223471EE8465900813736 /* SocketIOClientStatus.swift in Sources */,
 				F812233B1EE8465900813736 /* SocketEngine.swift in Sources */,
+				F88B4DB21F03A84500AA9545 /* UserRetriever.swift in Sources */,
+				F88B4DB41F03AABD00AA9545 /* AbstractRetriever.swift in Sources */,
 				F81223441EE8465900813736 /* SocketIOClientConfiguration.swift in Sources */,
 				F81223391EE8465900813736 /* SocketAnyEvent.swift in Sources */,
 				F8D236F91ECDA91E00D19043 /* UserCell.swift in Sources */,

@@ -11,8 +11,9 @@ import UIKit
 class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
 
 	@IBOutlet weak var tableView: UITableView!
-	
 	@IBOutlet weak var searchBar: UISearchBar!
+	
+	let userRetriever: UserRetriever = UserRetriever()
 	
 	var users: [User] = []
 	var filteredUsers: [User] = []
@@ -32,6 +33,8 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
 		self.searchBar.delegate = self
 		
 		self.tableView.register(UserCell.classForCoder(), forCellReuseIdentifier: "userCell")
+		
+		getAllUsers()
 		
 		self.tableView.reloadData()
     }
@@ -80,5 +83,17 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
 		let userController = ChatViewController(nibName: "ChatViewController", bundle: nil, user: user)
 		
 		self.navigationController?.pushViewController(userController, animated: true)
+	}
+	
+	func getAllUsers() {
+		
+		userRetriever.getAllUsers { (users) in
+			self.users = []
+			self.users.append(contentsOf: users)
+			
+			DispatchQueue.main.async(execute: {
+				self.tableView.reloadData()
+			})
+		}
 	}
 }
