@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UsersViewController: UIViewController, UITableViewDelegate, UISearchBarDelegate {
+class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
 
 	@IBOutlet weak var tableView: UITableView!
 	
@@ -18,17 +18,17 @@ class UsersViewController: UIViewController, UITableViewDelegate, UISearchBarDel
 	var filteredUsers: [User] = []
 	
     override func viewDidLoad() {
-        super.viewDidLoad()
+		super.viewDidLoad()
+		// Do any additional setup after loading the view.
 
 		for i in 0 ..< 5 {
 			self.users.append(User(firstname: "Prénom " + String(i), lastname: "Nom " + String(i), email: "toto" + String(i) + "@lala.fr"))
 		}
 		
-        // Do any additional setup after loading the view.
 		self.filteredUsers.append(contentsOf: users)
 		
 		self.tableView.delegate = self
-		self.tableView.dataSource = self as? UITableViewDataSource
+		self.tableView.dataSource = self
 		self.searchBar.delegate = self
 		
 		self.tableView.register(UserCell.classForCoder(), forCellReuseIdentifier: "userCell")
@@ -68,10 +68,10 @@ class UsersViewController: UIViewController, UITableViewDelegate, UISearchBarDel
 		return self.filteredUsers.count
 	}
 	
-	@nonobjc func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell: UserCell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath) as! UserCell
 		
-		cell.labelUser?.text = self.filteredUsers[indexPath.row].firstname
+		cell.textLabel?.text = self.filteredUsers[indexPath.row].firstname
 		return cell
 	}
 	
