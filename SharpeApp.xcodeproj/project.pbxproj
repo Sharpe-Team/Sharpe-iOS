@@ -34,6 +34,10 @@
 		F812234D1EE8465900813736 /* SSLSecurity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81223351EE8465900813736 /* SSLSecurity.swift */; };
 		F812234E1EE8465900813736 /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81223361EE8465900813736 /* WebSocket.swift */; };
 		F81223511EE846C400813736 /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81223501EE846C400813736 /* SocketIOManager.swift */; };
+		F88B4DAA1F039FE500AA9545 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = F88B4DA61F039FE500AA9545 /* background.png */; };
+		F88B4DAB1F039FE500AA9545 /* favicon.png in Resources */ = {isa = PBXBuildFile; fileRef = F88B4DA71F039FE500AA9545 /* favicon.png */; };
+		F88B4DAC1F039FE500AA9545 /* font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F88B4DA81F039FE500AA9545 /* font.ttf */; };
+		F88B4DAD1F039FE500AA9545 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = F88B4DA91F039FE500AA9545 /* logo.png */; };
 		F8D236D21ECD9AD000D19043 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D236D11ECD9AD000D19043 /* AppDelegate.swift */; };
 		F8D236D71ECD9AD000D19043 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8D236D51ECD9AD000D19043 /* Main.storyboard */; };
 		F8D236D91ECD9AD000D19043 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8D236D81ECD9AD000D19043 /* Assets.xcassets */; };
@@ -76,6 +80,10 @@
 		F81223351EE8465900813736 /* SSLSecurity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSLSecurity.swift; sourceTree = "<group>"; };
 		F81223361EE8465900813736 /* WebSocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSocket.swift; sourceTree = "<group>"; };
 		F81223501EE846C400813736 /* SocketIOManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
+		F88B4DA61F039FE500AA9545 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = Resources/background.png; sourceTree = "<group>"; };
+		F88B4DA71F039FE500AA9545 /* favicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = favicon.png; path = Resources/favicon.png; sourceTree = "<group>"; };
+		F88B4DA81F039FE500AA9545 /* font.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = font.ttf; path = Resources/font.ttf; sourceTree = "<group>"; };
+		F88B4DA91F039FE500AA9545 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = Resources/logo.png; sourceTree = "<group>"; };
 		F8D236CE1ECD9AD000D19043 /* SharpeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SharpeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8D236D11ECD9AD000D19043 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8D236D61ECD9AD000D19043 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -142,6 +150,17 @@
 			name = SocketIO;
 			sourceTree = "<group>";
 		};
+		F88B4DAE1F039FF200AA9545 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F88B4DA61F039FE500AA9545 /* background.png */,
+				F88B4DA71F039FE500AA9545 /* favicon.png */,
+				F88B4DA81F039FE500AA9545 /* font.ttf */,
+				F88B4DA91F039FE500AA9545 /* logo.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		F8D236C51ECD9AD000D19043 = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +181,7 @@
 		F8D236D01ECD9AD000D19043 /* SharpeApp */ = {
 			isa = PBXGroup;
 			children = (
+				F88B4DAE1F039FF200AA9545 /* Resources */,
 				F8D236D11ECD9AD000D19043 /* AppDelegate.swift */,
 				F81223501EE846C400813736 /* SocketIOManager.swift */,
 				F8D236D51ECD9AD000D19043 /* Main.storyboard */,
@@ -242,8 +262,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8D236DC1ECD9AD000D19043 /* LaunchScreen.storyboard in Resources */,
+				F88B4DAA1F039FE500AA9545 /* background.png in Resources */,
+				F88B4DAD1F039FE500AA9545 /* logo.png in Resources */,
+				F88B4DAB1F039FE500AA9545 /* favicon.png in Resources */,
 				F8D236FE1ECDAF7D00D19043 /* UsersViewController.xib in Resources */,
 				F812231D1EE8320C00813736 /* ChatViewController.xib in Resources */,
+				F88B4DAC1F039FE500AA9545 /* font.ttf in Resources */,
 				F8D236F41ECDA2E900D19043 /* ChatCell.xib in Resources */,
 				F8D236D91ECD9AD000D19043 /* Assets.xcassets in Resources */,
 				F8D236D71ECD9AD000D19043 /* Main.storyboard in Resources */,
