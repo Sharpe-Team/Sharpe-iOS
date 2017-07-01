@@ -17,8 +17,12 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+		errorLabel.lineBreakMode = .byWordWrapping
+		errorLabel.numberOfLines = 0;
+		
+		// Check if there is already a token in the local storage.
+		// If yes, check its validity and redirect to UsersViewController of it is
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,19 +37,24 @@ class LoginViewController: UIViewController {
         let save = self // Useless ? Anonym function like Java ?
         
         if(username != "" && password != "") {
-            LoginRetriever().login(username: username!, password: password!, callback: { (isConnected) in
-                
-                if(isConnected) {
+			self.errorLabel.text = ""
+			SwiftSpinner.show("Authentification en cours...")
+			
+            LoginRetriever().login(username: username!, password: password!, callback: { (isConnected, message) in
+				
+				if(isConnected) {
+					SwiftSpinner.hide()
                     let usersController = UsersViewController()
                     save.navigationController?.pushViewController(usersController, animated: true)
                 }
-                else {
-                    save.errorLabel.text = "Connection error"
+				else {
+					SwiftSpinner.hide()
+                    save.errorLabel.text = message
                 }
             })
         }
         else {
-            self.errorLabel.text = "Please complete all fields"
+            self.errorLabel.text = "Veuillez renseigner tous les champs"
         }
     }
 }

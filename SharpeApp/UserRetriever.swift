@@ -11,7 +11,7 @@ import Foundation
 class UserRetriever: AbstractRetriever {
 	
 	func getAllUsers(callback: @escaping ([User]) -> Void) {
-		let users: [User] = []
+		var users: [User] = []
 		
 		let url: URL = URL(string: API_URL + "/users")!
 		var request = getRequestWithHeaders(url: url)
@@ -29,24 +29,27 @@ class UserRetriever: AbstractRetriever {
 		
 		let session = URLSession(configuration: URLSessionConfiguration.default, delegate: self, delegateQueue: OperationQueue.main)
 		
-		let task = session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
-			print("data = \(data) \n")
-			print("error = \(error) \n")
+		let task = session.dataTask(with: request, completionHandler: {
+			(data: Data?, response: URLResponse?, error: Error?) in
 			
 			if (error != nil) {
 				callback(users)
 			} else if (data != nil) {
 				do {
-					let itemList = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as! Array<User>
+					let itemList = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as! Array<Dictionary<String, NSObject>>
 					
 					// Convert itemList to [User]
+					itemList.forEach({ (object) in
+						let user: User = User(object: object)
+						users.append(user)
+					})
 					
-					callback(itemList)
+					callback(users)
 				} catch let errorEx {
 					callback(users)
 				}
 			}
-		}
+		})
 		task.resume()
 	}
 }

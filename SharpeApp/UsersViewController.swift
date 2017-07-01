@@ -21,6 +21,7 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
     override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view.
+		navigationItem.hidesBackButton = true
 
 		for i in 0 ..< 5 {
 			self.users.append(User(firstname: "Prénom " + String(i), lastname: "Nom " + String(i), email: "toto" + String(i) + "@lala.fr"))
@@ -90,6 +91,8 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
 		userRetriever.getAllUsers { (users) in
 			self.users = []
 			self.users.append(contentsOf: users)
+			self.filteredUsers = []
+			self.filteredUsers.append(contentsOf: self.users)
 			
 			DispatchQueue.main.async(execute: {
 				self.tableView.reloadData()

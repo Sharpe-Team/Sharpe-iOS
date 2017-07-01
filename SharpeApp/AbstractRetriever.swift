@@ -10,10 +10,10 @@ import Foundation
 
 class AbstractRetriever: NSObject {
 
-	public let API_URL: String = "https://fouan.ddns.net:8443"
+	public let API_URL: String = "https://localhost:8443" //"https://fouan.ddns.net:8443"
 	
 	func getToken() -> String {
-		return ""
+		return UserDefaults.standard.string(forKey: "token")!;
 	}
 	
 	func getRequestWithHeaders(url: URL) -> URLRequest {

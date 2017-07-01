@@ -37,6 +37,7 @@
 		F812234D1EE8465900813736 /* SSLSecurity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81223351EE8465900813736 /* SSLSecurity.swift */; };
 		F812234E1EE8465900813736 /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81223361EE8465900813736 /* WebSocket.swift */; };
 		F81223511EE846C400813736 /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81223501EE846C400813736 /* SocketIOManager.swift */; };
+		F82E3B881F07F6A90060A7FE /* Swiftspinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82E3B871F07F6A90060A7FE /* Swiftspinner.swift */; };
 		F88B4DAA1F039FE500AA9545 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = F88B4DA61F039FE500AA9545 /* background.png */; };
 		F88B4DAB1F039FE500AA9545 /* favicon.png in Resources */ = {isa = PBXBuildFile; fileRef = F88B4DA71F039FE500AA9545 /* favicon.png */; };
 		F88B4DAC1F039FE500AA9545 /* font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F88B4DA81F039FE500AA9545 /* font.ttf */; };
@@ -88,6 +89,7 @@
 		F81223351EE8465900813736 /* SSLSecurity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSLSecurity.swift; sourceTree = "<group>"; };
 		F81223361EE8465900813736 /* WebSocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSocket.swift; sourceTree = "<group>"; };
 		F81223501EE846C400813736 /* SocketIOManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
+		F82E3B871F07F6A90060A7FE /* Swiftspinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swiftspinner.swift; sourceTree = "<group>"; };
 		F88B4DA61F039FE500AA9545 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = Resources/background.png; sourceTree = "<group>"; };
 		F88B4DA71F039FE500AA9545 /* favicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = favicon.png; path = Resources/favicon.png; sourceTree = "<group>"; };
 		F88B4DA81F039FE500AA9545 /* font.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = font.ttf; path = Resources/font.ttf; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 				EC9980661F039C5A00D466EF /* LoginViewController.swift */,
 				EC9980671F039C5A00D466EF /* LoginViewController.xib */,
 				EC99806A1F03A8E900D466EF /* LoginRetriever.swift */,
+				F82E3B871F07F6A90060A7FE /* Swiftspinner.swift */,
 			);
 			path = SharpeApp;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				F81223401EE8465900813736 /* SocketEngineWebsocket.swift in Sources */,
 				F81223371EE8465900813736 /* SocketAckEmitter.swift in Sources */,
 				F812234B1EE8465900813736 /* SocketStringReader.swift in Sources */,
+				F82E3B881F07F6A90060A7FE /* Swiftspinner.swift in Sources */,
 				EC9980681F039C5A00D466EF /* LoginViewController.swift in Sources */,
 				F812231C1EE8320C00813736 /* ChatViewController.swift in Sources */,
 				F812234E1EE8465900813736 /* WebSocket.swift in Sources */,
