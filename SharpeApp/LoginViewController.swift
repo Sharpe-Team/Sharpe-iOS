@@ -20,9 +20,6 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
 		errorLabel.lineBreakMode = .byWordWrapping
 		errorLabel.numberOfLines = 0;
-		
-		// Check if there is already a token in the local storage.
-		// If yes, check its validity and redirect to UsersViewController of it is
     }
 
     override func didReceiveMemoryWarning() {

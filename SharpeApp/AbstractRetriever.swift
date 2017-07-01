@@ -12,8 +12,8 @@ class AbstractRetriever: NSObject {
 
 	public let API_URL: String = "https://localhost:8443" //"https://fouan.ddns.net:8443"
 	
-	func getToken() -> String {
-		return UserDefaults.standard.string(forKey: "token")!;
+	static func getToken() -> String? {
+		return UserDefaults.standard.string(forKey: "token");
 	}
 	
 	func getRequestWithHeaders(url: URL) -> URLRequest {
@@ -21,7 +21,7 @@ class AbstractRetriever: NSObject {
 		
 		request.addValue("application/json", forHTTPHeaderField: "Content-type")
 		request.addValue("application/json", forHTTPHeaderField: "Accept")
-		request.setValue("Bearer " + getToken(), forHTTPHeaderField: "Authorization")
+		request.setValue("Bearer " + AbstractRetriever.getToken()!, forHTTPHeaderField: "Authorization")
 		
 		return request
 	}

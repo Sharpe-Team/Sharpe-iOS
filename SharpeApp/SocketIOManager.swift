@@ -10,19 +10,35 @@ import UIKit
 
 class SocketIOManager: NSObject {
 	
-	static let sharedInstance = SocketIOManager()
+	static let sharedInstance: SocketIOManager = SocketIOManager()
 	
-	var socket: SocketIOClient = SocketIOClient(socketURL: NSURL(string: "http://fouan.ddns.net:3000")! as URL)
+	var socket: SocketIOClient = SocketIOClient(socketURL: NSURL(string: "http://localhost:3000")! as URL)
 	
-	override init() {
+	private override init() {
 		super.init()
 	}
 	
 	func establishConnection() {
 		socket.connect()
+		
+		socket.on("connect") {data, ack in
+			// Check if there is already a token in the local storage.
+			// If yes, check its validity and redirect to UsersViewController of it is
+			let token = AbstractRetriever.getToken()
+			if(token != nil) {
+				self.socket.emitWithAck("login", (token?.components(separatedBy: " ")[1])!).timingOut(after: 2, callback: { (data) in
+					print("coucou + \(data) \n")
+				})
+			}
+		}
 	}
  
 	func closeConnection() {
 		socket.disconnect()
+	}
+	
+	func login(token: String, callback: @escaping ([Any]) -> Void) {
+		
+		
 	}
 }
