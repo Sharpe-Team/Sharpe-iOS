@@ -48,9 +48,10 @@ class LoginRetriever: AbstractRetriever {
 					do {
 						let object = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as! Dictionary<String, NSObject>
 						print("object : \(String(describing: object["message"])) \n")
-						callback(false, nil, object["message"] as! String)
+						callback(false, nil, (object["message"] as? String))
 					} catch let error {
 						print("json parsing error : \(error) \n")
+						callback(false, nil, error.localizedDescription)
 					}
 				}
 			}

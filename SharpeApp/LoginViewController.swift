@@ -31,8 +31,6 @@ class LoginViewController: UIViewController {
         let username = self.loginTextView.text
         let password = self.passwordTextView.text
         
-        let save = self // Useless ? Anonym function like Java ?
-        
         if(username != "" && password != "") {
 			self.errorLabel.text = ""
 			SwiftSpinner.show("Authentification en cours")
@@ -45,10 +43,10 @@ class LoginViewController: UIViewController {
 					SocketIOManager.sharedInstance.login(token: token!)
 					
                     let usersController = UsersViewController()
-                    save.navigationController?.pushViewController(usersController, animated: true)
+                    self.navigationController?.pushViewController(usersController, animated: true)
                 }
 				else {
-                    save.errorLabel.text = message
+                    self.errorLabel.text = message
                 }
             })
         }

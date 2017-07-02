@@ -39,6 +39,11 @@
 		F81223511EE846C400813736 /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81223501EE846C400813736 /* SocketIOManager.swift */; };
 		F82E3B881F07F6A90060A7FE /* Swiftspinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82E3B871F07F6A90060A7FE /* Swiftspinner.swift */; };
 		F82E3BBB1F08E8520060A7FE /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82E3BBA1F08E8520060A7FE /* StorageManager.swift */; };
+		F879FD1C1F091668007433A1 /* CircleRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = F879FD1B1F091668007433A1 /* CircleRetriever.swift */; };
+		F879FD1E1F0917A6007433A1 /* Circle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F879FD1D1F0917A6007433A1 /* Circle.swift */; };
+		F879FD201F09187B007433A1 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = F879FD1F1F09187B007433A1 /* Line.swift */; };
+		F879FD221F09212C007433A1 /* PointRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = F879FD211F09212C007433A1 /* PointRetriever.swift */; };
+		F879FD241F092229007433A1 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = F879FD231F092229007433A1 /* Point.swift */; };
 		F88B4DAA1F039FE500AA9545 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = F88B4DA61F039FE500AA9545 /* background.png */; };
 		F88B4DAB1F039FE500AA9545 /* favicon.png in Resources */ = {isa = PBXBuildFile; fileRef = F88B4DA71F039FE500AA9545 /* favicon.png */; };
 		F88B4DAC1F039FE500AA9545 /* font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F88B4DA81F039FE500AA9545 /* font.ttf */; };
@@ -92,6 +97,11 @@
 		F81223501EE846C400813736 /* SocketIOManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
 		F82E3B871F07F6A90060A7FE /* Swiftspinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swiftspinner.swift; sourceTree = "<group>"; };
 		F82E3BBA1F08E8520060A7FE /* StorageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		F879FD1B1F091668007433A1 /* CircleRetriever.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleRetriever.swift; sourceTree = "<group>"; };
+		F879FD1D1F0917A6007433A1 /* Circle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Circle.swift; sourceTree = "<group>"; };
+		F879FD1F1F09187B007433A1 /* Line.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
+		F879FD211F09212C007433A1 /* PointRetriever.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointRetriever.swift; sourceTree = "<group>"; };
+		F879FD231F092229007433A1 /* Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
 		F88B4DA61F039FE500AA9545 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = Resources/background.png; sourceTree = "<group>"; };
 		F88B4DA71F039FE500AA9545 /* favicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = favicon.png; path = Resources/favicon.png; sourceTree = "<group>"; };
 		F88B4DA81F039FE500AA9545 /* font.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = font.ttf; path = Resources/font.ttf; sourceTree = "<group>"; };
@@ -219,6 +229,11 @@
 				EC99806A1F03A8E900D466EF /* LoginRetriever.swift */,
 				F82E3B871F07F6A90060A7FE /* Swiftspinner.swift */,
 				F82E3BBA1F08E8520060A7FE /* StorageManager.swift */,
+				F879FD1B1F091668007433A1 /* CircleRetriever.swift */,
+				F879FD1D1F0917A6007433A1 /* Circle.swift */,
+				F879FD1F1F09187B007433A1 /* Line.swift */,
+				F879FD211F09212C007433A1 /* PointRetriever.swift */,
+				F879FD231F092229007433A1 /* Point.swift */,
 			);
 			path = SharpeApp;
 			sourceTree = "<group>";
@@ -304,6 +319,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F879FD201F09187B007433A1 /* Line.swift in Sources */,
+				F879FD241F092229007433A1 /* Point.swift in Sources */,
 				F812233C1EE8465900813736 /* SocketEngineClient.swift in Sources */,
 				F81223471EE8465900813736 /* SocketIOClientStatus.swift in Sources */,
 				F812233B1EE8465900813736 /* SocketEngine.swift in Sources */,
@@ -313,11 +330,13 @@
 				F81223391EE8465900813736 /* SocketAnyEvent.swift in Sources */,
 				F8D236F91ECDA91E00D19043 /* UserCell.swift in Sources */,
 				F81223491EE8465900813736 /* SocketPacket.swift in Sources */,
+				F879FD221F09212C007433A1 /* PointRetriever.swift in Sources */,
 				F82E3BBB1F08E8520060A7FE /* StorageManager.swift in Sources */,
 				F8D236F31ECDA2E900D19043 /* ChatCell.swift in Sources */,
 				EC99806B1F03A8E900D466EF /* LoginRetriever.swift in Sources */,
 				F8D237001ECDB09D00D19043 /* User.swift in Sources */,
 				F81223381EE8465900813736 /* SocketAckManager.swift in Sources */,
+				F879FD1C1F091668007433A1 /* CircleRetriever.swift in Sources */,
 				F812233E1EE8465900813736 /* SocketEnginePollable.swift in Sources */,
 				F81223421EE8465900813736 /* SocketExtensions.swift in Sources */,
 				F81223511EE846C400813736 /* SocketIOManager.swift in Sources */,
@@ -328,6 +347,7 @@
 				F812234D1EE8465900813736 /* SSLSecurity.swift in Sources */,
 				F81223401EE8465900813736 /* SocketEngineWebsocket.swift in Sources */,
 				F81223371EE8465900813736 /* SocketAckEmitter.swift in Sources */,
+				F879FD1E1F0917A6007433A1 /* Circle.swift in Sources */,
 				F812234B1EE8465900813736 /* SocketStringReader.swift in Sources */,
 				F82E3B881F07F6A90060A7FE /* Swiftspinner.swift in Sources */,
 				EC9980681F039C5A00D466EF /* LoginViewController.swift in Sources */,

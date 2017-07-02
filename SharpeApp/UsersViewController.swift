@@ -29,7 +29,7 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
 		self.tableView.dataSource = self
 		self.searchBar.delegate = self
 		
-		self.tableView.register(UserCell.classForCoder(), forCellReuseIdentifier: "userCell")
+		self.tableView.register(UINib(nibName: "UserCell", bundle: nil), forCellReuseIdentifier: "userCell")
 		
 		getAllUsers()
 		
@@ -77,7 +77,7 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell: UserCell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath) as! UserCell
 		
-		cell.textLabel?.text = self.filteredUsers[indexPath.row].firstname
+		cell.labelUser.text = self.filteredUsers[indexPath.row].firstname
 		return cell
 	}
 	

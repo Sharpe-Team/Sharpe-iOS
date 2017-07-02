@@ -20,7 +20,7 @@ class User: NSObject, NSCoding {
 		
 	}
 	
-	init(id: Int, firstname: String?, lastname: String?, email: String?, profilePicture: String?, admin: Int) {
+	init(id: Int?, firstname: String?, lastname: String?, email: String?, profilePicture: String?, admin: Int?) {
 		self.id = id
 		self.firstname = firstname
 		self.lastname = lastname
@@ -39,12 +39,12 @@ class User: NSObject, NSCoding {
 	}
 	
 	required convenience init(coder aDecoder: NSCoder) {
-		let id = aDecoder.decodeInteger(forKey: "id")
+		let id = aDecoder.decodeObject(forKey: "id") as? Int
 		let firstname = aDecoder.decodeObject(forKey: "firstname") as? String
 		let lastname = aDecoder.decodeObject(forKey: "lastname") as? String
 		let email = aDecoder.decodeObject(forKey: "email") as? String
 		let profilePicture = aDecoder.decodeObject(forKey: "profilePicture") as? String
-		let admin = aDecoder.decodeInteger(forKey: "admin")
+		let admin = aDecoder.decodeObject(forKey: "admin") as? Int
 		
 		self.init(id: id, firstname: firstname, lastname: lastname, email: email, profilePicture: profilePicture, admin: admin)
 	}

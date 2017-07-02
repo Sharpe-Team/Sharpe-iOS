@@ -16,6 +16,8 @@ class UserCell: BaseCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+		
+		self.labelUser.lineBreakMode = .byWordWrapping
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
