@@ -37,7 +37,7 @@
 		F812234D1EE8465900813736 /* SSLSecurity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81223351EE8465900813736 /* SSLSecurity.swift */; };
 		F812234E1EE8465900813736 /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81223361EE8465900813736 /* WebSocket.swift */; };
 		F81223511EE846C400813736 /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81223501EE846C400813736 /* SocketIOManager.swift */; };
-		F82E3B881F07F6A90060A7FE /* Swiftspinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82E3B871F07F6A90060A7FE /* Swiftspinner.swift */; };
+		F82E3B881F07F6A90060A7FE /* SwiftSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82E3B871F07F6A90060A7FE /* SwiftSpinner.swift */; };
 		F82E3BBB1F08E8520060A7FE /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82E3BBA1F08E8520060A7FE /* StorageManager.swift */; };
 		F879FD1C1F091668007433A1 /* CircleRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = F879FD1B1F091668007433A1 /* CircleRetriever.swift */; };
 		F879FD1E1F0917A6007433A1 /* Circle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F879FD1D1F0917A6007433A1 /* Circle.swift */; };
@@ -95,7 +95,7 @@
 		F81223351EE8465900813736 /* SSLSecurity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSLSecurity.swift; sourceTree = "<group>"; };
 		F81223361EE8465900813736 /* WebSocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSocket.swift; sourceTree = "<group>"; };
 		F81223501EE846C400813736 /* SocketIOManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
-		F82E3B871F07F6A90060A7FE /* Swiftspinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swiftspinner.swift; sourceTree = "<group>"; };
+		F82E3B871F07F6A90060A7FE /* SwiftSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftSpinner.swift; sourceTree = "<group>"; };
 		F82E3BBA1F08E8520060A7FE /* StorageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		F879FD1B1F091668007433A1 /* CircleRetriever.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleRetriever.swift; sourceTree = "<group>"; };
 		F879FD1D1F0917A6007433A1 /* Circle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Circle.swift; sourceTree = "<group>"; };
@@ -174,6 +174,45 @@
 			name = SocketIO;
 			sourceTree = "<group>";
 		};
+		F879FD251F094688007433A1 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				F8D236F71ECDA91E00D19043 /* UserCell.swift */,
+				F8D236F81ECDA91E00D19043 /* UserCell.xib */,
+				F8D236FB1ECDAF7D00D19043 /* UsersViewController.swift */,
+				F8D236FC1ECDAF7D00D19043 /* UsersViewController.xib */,
+				F8D236FF1ECDB09D00D19043 /* User.swift */,
+				F88B4DB11F03A84500AA9545 /* UserRetriever.swift */,
+			);
+			name = User;
+			sourceTree = "<group>";
+		};
+		F879FD261F0946A8007433A1 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				F8D236F11ECDA2E900D19043 /* ChatCell.swift */,
+				F8D236F21ECDA2E900D19043 /* ChatCell.xib */,
+				F812231A1EE8320C00813736 /* ChatViewController.swift */,
+				F812231B1EE8320C00813736 /* ChatViewController.xib */,
+				F879FD1B1F091668007433A1 /* CircleRetriever.swift */,
+				F879FD1D1F0917A6007433A1 /* Circle.swift */,
+				F879FD1F1F09187B007433A1 /* Line.swift */,
+				F879FD211F09212C007433A1 /* PointRetriever.swift */,
+				F879FD231F092229007433A1 /* Point.swift */,
+			);
+			name = Chat;
+			sourceTree = "<group>";
+		};
+		F879FD271F0946B6007433A1 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				EC9980661F039C5A00D466EF /* LoginViewController.swift */,
+				EC9980671F039C5A00D466EF /* LoginViewController.xib */,
+				EC99806A1F03A8E900D466EF /* LoginRetriever.swift */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
 		F88B4DAE1F039FF200AA9545 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,6 +244,9 @@
 		F8D236D01ECD9AD000D19043 /* SharpeApp */ = {
 			isa = PBXGroup;
 			children = (
+				F879FD271F0946B6007433A1 /* Login */,
+				F879FD261F0946A8007433A1 /* Chat */,
+				F879FD251F094688007433A1 /* User */,
 				F88B4DAE1F039FF200AA9545 /* Resources */,
 				F8D236D11ECD9AD000D19043 /* AppDelegate.swift */,
 				F81223501EE846C400813736 /* SocketIOManager.swift */,
@@ -213,27 +255,9 @@
 				F8D236DA1ECD9AD000D19043 /* LaunchScreen.storyboard */,
 				F8D236DD1ECD9AD000D19043 /* Info.plist */,
 				F8D236E31ECD9B8700D19043 /* BaseCell.swift */,
-				F8D236F11ECDA2E900D19043 /* ChatCell.swift */,
-				F8D236F21ECDA2E900D19043 /* ChatCell.xib */,
-				F8D236F71ECDA91E00D19043 /* UserCell.swift */,
-				F8D236F81ECDA91E00D19043 /* UserCell.xib */,
-				F8D236FB1ECDAF7D00D19043 /* UsersViewController.swift */,
-				F8D236FC1ECDAF7D00D19043 /* UsersViewController.xib */,
-				F8D236FF1ECDB09D00D19043 /* User.swift */,
-				F812231A1EE8320C00813736 /* ChatViewController.swift */,
-				F812231B1EE8320C00813736 /* ChatViewController.xib */,
-				F88B4DB11F03A84500AA9545 /* UserRetriever.swift */,
 				F88B4DB31F03AABD00AA9545 /* AbstractRetriever.swift */,
-				EC9980661F039C5A00D466EF /* LoginViewController.swift */,
-				EC9980671F039C5A00D466EF /* LoginViewController.xib */,
-				EC99806A1F03A8E900D466EF /* LoginRetriever.swift */,
-				F82E3B871F07F6A90060A7FE /* Swiftspinner.swift */,
+				F82E3B871F07F6A90060A7FE /* SwiftSpinner.swift */,
 				F82E3BBA1F08E8520060A7FE /* StorageManager.swift */,
-				F879FD1B1F091668007433A1 /* CircleRetriever.swift */,
-				F879FD1D1F0917A6007433A1 /* Circle.swift */,
-				F879FD1F1F09187B007433A1 /* Line.swift */,
-				F879FD211F09212C007433A1 /* PointRetriever.swift */,
-				F879FD231F092229007433A1 /* Point.swift */,
 			);
 			path = SharpeApp;
 			sourceTree = "<group>";
@@ -349,7 +373,7 @@
 				F81223371EE8465900813736 /* SocketAckEmitter.swift in Sources */,
 				F879FD1E1F0917A6007433A1 /* Circle.swift in Sources */,
 				F812234B1EE8465900813736 /* SocketStringReader.swift in Sources */,
-				F82E3B881F07F6A90060A7FE /* Swiftspinner.swift in Sources */,
+				F82E3B881F07F6A90060A7FE /* SwiftSpinner.swift in Sources */,
 				EC9980681F039C5A00D466EF /* LoginViewController.swift in Sources */,
 				F812231C1EE8320C00813736 /* ChatViewController.swift in Sources */,
 				F812234E1EE8465900813736 /* WebSocket.swift in Sources */,
