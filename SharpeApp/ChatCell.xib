@@ -18,14 +18,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="52.5"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Mon message" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="313" translatesAutoresizingMaskIntoConstraints="NO" id="mBj-1A-W5J" userLabel="LabelChatMessage">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" horizontalCompressionResistancePriority="748" text="Mon message" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="313" translatesAutoresizingMaskIntoConstraints="NO" id="mBj-1A-W5J" userLabel="LabelChatMessage">
                         <rect key="frame" x="8" y="0.0" width="312" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="écrit par toto le 20 mai 2017" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fc3-k0-mit" userLabel="LabelMessageDetails">
-                        <rect key="frame" x="4" y="32" width="312" height="0.0"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="écrit par toto le 20 mai 2017" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fc3-k0-mit" userLabel="LabelMessageDetails">
+                        <rect key="frame" x="8" y="32" width="308" height="13"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.21720963302800445" green="0.10944817287775088" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -33,10 +33,10 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="Fc3-k0-mit" secondAttribute="trailing" id="1Nq-gz-4wc"/>
-                    <constraint firstItem="Fc3-k0-mit" firstAttribute="top" secondItem="mBj-1A-W5J" secondAttribute="bottom" constant="10" id="2iA-cB-Sf0"/>
+                    <constraint firstAttribute="trailing" secondItem="Fc3-k0-mit" secondAttribute="trailing" constant="4" id="1Nq-gz-4wc"/>
+                    <constraint firstItem="Fc3-k0-mit" firstAttribute="top" secondItem="mBj-1A-W5J" secondAttribute="bottom" constant="11" id="2iA-cB-Sf0"/>
                     <constraint firstAttribute="trailing" secondItem="mBj-1A-W5J" secondAttribute="trailing" id="BnO-Ae-bIY"/>
-                    <constraint firstAttribute="bottom" secondItem="Fc3-k0-mit" secondAttribute="bottom" constant="5" id="Jeg-1X-xa1"/>
+                    <constraint firstAttribute="bottom" secondItem="Fc3-k0-mit" secondAttribute="bottom" constant="7.5" id="Jeg-1X-xa1"/>
                     <constraint firstItem="mBj-1A-W5J" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="U1R-ff-gsS"/>
                     <constraint firstItem="mBj-1A-W5J" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="hH1-FM-Y58"/>
                     <constraint firstItem="Fc3-k0-mit" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="zQm-Hl-jlz"/>
