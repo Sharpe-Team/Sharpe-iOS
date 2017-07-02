@@ -22,10 +22,6 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
 		super.viewDidLoad()
 		// Do any additional setup after loading the view.
 		navigationItem.hidesBackButton = true
-
-		for i in 0 ..< 5 {
-			self.users.append(User(firstname: "Prénom " + String(i), lastname: "Nom " + String(i), email: "toto" + String(i) + "@lala.fr"))
-		}
 		
 		self.filteredUsers.append(contentsOf: users)
 		
@@ -55,6 +51,12 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
         // Pass the selected object to the new view controller.
     }
     */
+	
+	@IBAction func disconnectBtn(_ sender: UIButton) {
+		StorageManager.clearStorage()
+		SocketIOManager.sharedInstance.disconnect()
+		navigationController?.popToRootViewController(animated: true)
+	}
 
 	func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 		if (searchText.isEmpty) {

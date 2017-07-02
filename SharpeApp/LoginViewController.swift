@@ -35,17 +35,19 @@ class LoginViewController: UIViewController {
         
         if(username != "" && password != "") {
 			self.errorLabel.text = ""
-			SwiftSpinner.show("Authentification en cours...")
+			SwiftSpinner.show("Authentification en cours")
 			
-            LoginRetriever().login(username: username!, password: password!, callback: { (isConnected, message) in
+            LoginRetriever().login(username: username!, password: password!, callback: { (isConnected, token, message) in
+				SwiftSpinner.hide()
 				
 				if(isConnected) {
-					SwiftSpinner.hide()
+					StorageManager.storeToken(token: token!)
+					SocketIOManager.sharedInstance.login(token: token!)
+					
                     let usersController = UsersViewController()
                     save.navigationController?.pushViewController(usersController, animated: true)
                 }
 				else {
-					SwiftSpinner.hide()
                     save.errorLabel.text = message
                 }
             })

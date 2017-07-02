@@ -18,17 +18,22 @@ class SocketIOManager: NSObject {
 		super.init()
 	}
 	
-	func establishConnection() {
+	func establishConnection(navigationController: UINavigationController) {
 		socket.connect()
 		
-		socket.on("connect") {data, ack in
+		socket.on("connect") { data, ack in
 			// Check if there is already a token in the local storage.
 			// If yes, check its validity and redirect to UsersViewController of it is
-			let token = AbstractRetriever.getToken()
+			let token = StorageManager.getToken()
+			
+			// Send login event to be registered on the server
 			if(token != nil) {
-				self.socket.emitWithAck("login", (token?.components(separatedBy: " ")[1])!).timingOut(after: 2, callback: { (data) in
-					print("coucou + \(data) \n")
-				})
+				self.socket.emit("login", token!)
+				
+				SwiftSpinner.show("Initialisation en cours")
+				self.verifyToken(token: token!, navigationController: navigationController)
+			} else {
+				self.socket.emit("login")
 			}
 		}
 	}
@@ -37,8 +42,33 @@ class SocketIOManager: NSObject {
 		socket.disconnect()
 	}
 	
-	func login(token: String, callback: @escaping ([Any]) -> Void) {
-		
-		
+	func login(token: String) {
+		socket.emitWithAck("login", token).timingOut(after: 4) { (data) in
+			if(!(data[0] is String && (data[0] as! String) == SocketAckStatus.noAck.rawValue)) {
+				let userObj = data[0] as! Dictionary<String, AnyObject>
+				StorageManager.storeUser(user: User(object: userObj))
+			}
+		}
+	}
+	
+	func verifyToken(token: String, navigationController: UINavigationController) {
+		socket.emitWithAck("verify-token", token).timingOut(after: 4, callback: { (data) in
+			print("coucou + \(data) \n")
+			SwiftSpinner.hide()
+			
+			// If ack from server, get the user from ack and redirect to UserViewController => No need to reconnect
+			if(!(data[0] is String && (data[0] as! String) == SocketAckStatus.noAck.rawValue)) {
+				
+				let userObj = data[0] as! Dictionary<String, AnyObject>
+				StorageManager.storeUser(user: User(object: userObj))
+				
+				let usersController = UsersViewController()
+				navigationController.pushViewController(usersController, animated: true)
+			}
+		})
+	}
+	
+	func disconnect() {
+		socket.emit("logout")
 	}
 }
