@@ -53,7 +53,6 @@ class SocketIOManager: NSObject {
 	
 	func verifyToken(token: String, navigationController: UINavigationController) {
 		socket.emitWithAck("verify-token", token).timingOut(after: 4, callback: { (data) in
-			print("coucou + \(data) \n")
 			SwiftSpinner.hide()
 			
 			// If ack from server, get the user from ack and redirect to UserViewController => No need to reconnect
@@ -70,5 +69,9 @@ class SocketIOManager: NSObject {
 	
 	func disconnect() {
 		socket.emit("logout")
+	}
+	
+	func newPrivatePoint(point: Point, idFriend: Int) {
+		socket.emit("new-private-point", point, idFriend)
 	}
 }

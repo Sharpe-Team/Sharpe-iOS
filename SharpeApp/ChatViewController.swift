@@ -16,12 +16,14 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
 	let circleRetriever: CircleRetriever = CircleRetriever()
 	let pointRetriever: PointRetriever = PointRetriever()
 	
-	var user: User
+	var friend: User
 	var points: [Point]
+	var circle: Circle?
 	
 	init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?, user: User) {
-		self.user = user;
+		self.friend = user;
 		self.points = []
+		self.circle = nil
 		super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil);
 	}
 	
@@ -44,7 +46,27 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
 		
 		getAllPoints()
 		
-		self.chatTableView.reloadData()
+		// Register socketIO receiver method
+		SocketIOManager.sharedInstance.socket.on("new-private-point", callback: { (data, socketAckEmitter) in
+			
+			print("\(data)\n")
+			
+			if(!(data[0] is String && (data[0] as! String) == SocketAckStatus.noAck.rawValue)) {
+				
+				let pointObj = data[0] as! Dictionary<String, AnyObject>
+				let newPoint: Point = Point(object: pointObj)
+				
+				// If the new point belongs to this conversation, display it
+				if(newPoint.idLine == self.circle?.lines?[0].id) {
+					self.points.append(newPoint)
+					self.chatTableView.reloadData()
+					self.scrollToBottom()
+				} else {
+					// Otherwise, display a notification of new point in another line
+					
+				}
+			}
+		})
     }
 
     override func didReceiveMemoryWarning() {
@@ -69,7 +91,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
 		let point: Point = self.points[indexPath.row]
 		
 		cell.labelMessage.text = point.content
-		cell.labelDetails.text = "par \(point.user.firstname!) \(point.user.lastname!) le \(point.created)"
+		cell.labelDetails.text = "par \(point.user!.firstname) \(point.user!.lastname) le \(point.created)"
 		return cell
 	}
 	
@@ -81,9 +103,13 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
 	}
 	
 	func getAllPoints() {
+		let idUser: Int = StorageManager.getUser().id
+		
 		// Request to retrieve messages from API
-		circleRetriever.getCircle(idUser: self.user.id!) { (circle) in
+		circleRetriever.getCircle(idUser: idUser, idFriend: self.friend.id, callback: { (circle) in
 			if(circle != nil) {
+				self.circle = circle!
+				
 				self.pointRetriever.getPoints(idLine: (circle?.lines?[0].id)!, callback: { (points) in
 					self.points = []
 					self.points.append(contentsOf: points)
@@ -94,11 +120,25 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
 					})
 				})
 			}
-		}
+		})
 	}
 	
 	@IBAction func sendPoint(_ sender: UIButton) {
 		
+		let text: String = self.textView.text.trimmingCharacters(in: CharacterSet.whitespaces)
+		self.textView.text = ""
+		
+		if(text.characters.count > 0) {
+			let idLine: Int = (self.circle!.lines?[0].id)!
+			let idUser: Int = StorageManager.getUser().id
+			let date: Date = Date()
+			
+			pointRetriever.savePoint(text: text, idLine: idLine, idUser: idUser, created: date, callback: { (point) in
+				if(point != nil) {
+					SocketIOManager.sharedInstance.newPrivatePoint(point: point!, idFriend: self.friend.id)
+				}
+			})
+		}
 	}
 
 	func scrollToBottom() {

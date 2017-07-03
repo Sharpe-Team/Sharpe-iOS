@@ -64,7 +64,7 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
 			self.filteredUsers.append(contentsOf: self.users)
 		} else {
 			self.filteredUsers = self.users.filter({ (user: User) in
-				return (user.firstname?.contains(searchText))!
+				return (user.firstname.contains(searchText))
 			})
 		}
 		self.tableView.reloadData()

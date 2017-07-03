@@ -29,7 +29,7 @@ class StorageManager: NSObject {
 	}
 	
 	static func getUser() -> User {
-		let data = UserDefaults.standard.object(forKey: "user") as! Data
-		return NSKeyedUnarchiver.unarchiveObject(with: data) as! User
+		let data = UserDefaults.standard.data(forKey: "user")
+		return NSKeyedUnarchiver.unarchiveObject(with: data!) as! User
 	}
 }

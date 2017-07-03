@@ -10,13 +10,10 @@ import Foundation
 
 class CircleRetriever: AbstractRetriever {
 	
-	func getCircle(idUser: Int, callback: @escaping (Circle?) -> Void) {
+	func getCircle(idUser: Int, idFriend: Int, callback: @escaping (Circle?) -> Void) {
 		var circle: Circle?
 		
-		let user: User = StorageManager.getUser()
-		let id: Int = user.id!
-		
-		let params = "idUser1=\(id)&idUser2=\(idUser)"
+		let params = "idUser1=\(idUser)&idUser2=\(idFriend)"
 		let url: URL = URL(string: API_URL + "/circles/private?" + params)!
 		var request = getRequestWithHeaders(url: url)
 		request.httpMethod = "GET"
