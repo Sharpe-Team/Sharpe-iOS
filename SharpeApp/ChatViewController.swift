@@ -48,9 +48,6 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
 		
 		// Register socketIO receiver method
 		SocketIOManager.sharedInstance.socket.on("new-private-point", callback: { (data, socketAckEmitter) in
-			
-			print("\(data)\n")
-			
 			if(!(data[0] is String && (data[0] as! String) == SocketAckStatus.noAck.rawValue)) {
 				
 				let pointObj = data[0] as! Dictionary<String, AnyObject>
