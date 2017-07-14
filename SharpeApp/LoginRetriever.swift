@@ -9,7 +9,7 @@
 import Foundation
 class LoginRetriever: AbstractRetriever {
     
-    func login(username: String, password: String, callback: @escaping (Bool, String?, String?) -> Void) {
+    func login(username: String, password: String, callback: @escaping (String?, String?) -> Void) {
         
         let loginUrl = URL(string: API_URL + "/login")
         var urlRequest = URLRequest(url: loginUrl!)
@@ -30,28 +30,29 @@ class LoginRetriever: AbstractRetriever {
         let task: URLSessionDataTask = session.dataTask(with: urlRequest, completionHandler: {
             (data: Data?, response: URLResponse?, error: Error?) in
 			
-			// Error
+			// Network error
 			if(error != nil) {
 				print("error = \(String(describing: error)) \n")
-				callback(false, nil, error.debugDescription)
-			} else if(data != nil) {
+				callback(nil, error.debugDescription)
+			} else if(data != nil) { // Response from server
 				let httpResponse = response as? HTTPURLResponse
 				
-				// OK
+				// OK Http Status
 				if(httpResponse?.statusCode == 200) {
 					var token = httpResponse?.allHeaderFields["Authorization"] as? String
 					// Remove header of token : "Bearer "
+					// Split token with space
 					token = token?.components(separatedBy: " ")[1]
 					
-					callback(true, token, nil)
+					callback(token, nil)
 				} else { // KO from server
 					do {
 						let object = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as! Dictionary<String, NSObject>
 						print("object : \(String(describing: object["message"])) \n")
-						callback(false, nil, (object["message"] as? String))
+						callback(nil, (object["message"] as? String))
 					} catch let error {
 						print("json parsing error : \(error) \n")
-						callback(false, nil, error.localizedDescription)
+						callback(nil, error.localizedDescription)
 					}
 				}
 			}

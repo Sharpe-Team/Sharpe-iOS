@@ -33,8 +33,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+		
 		self.textView.layer.borderWidth = 5.0
 		self.textView.layer.borderColor = UIColor.blue.cgColor
 		
@@ -58,9 +57,6 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
 					self.points.append(newPoint)
 					self.chatTableView.reloadData()
 					self.scrollToBottom()
-				} else {
-					// Otherwise, display a notification of new point in another line
-					
 				}
 			}
 		})
@@ -68,19 +64,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell: ChatCell = tableView.dequeueReusableCell(withIdentifier: "chatCell", for: indexPath) as! ChatCell

@@ -43,8 +43,9 @@ class SocketIOManager: NSObject {
 	}
 	
 	func login(token: String) {
-		socket.emitWithAck("login", token).timingOut(after: 4) { (data) in
+		socket.emitWithAck("login", token).timingOut(after: 2) { (data) in
 			if(!(data[0] is String && (data[0] as! String) == SocketAckStatus.noAck.rawValue)) {
+				print("BEFORE STORE USER\n")
 				let userObj = data[0] as! Dictionary<String, AnyObject>
 				StorageManager.storeUser(user: User(object: userObj))
 			}

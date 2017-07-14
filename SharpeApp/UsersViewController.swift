@@ -20,7 +20,6 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
 	
     override func viewDidLoad() {
 		super.viewDidLoad()
-		// Do any additional setup after loading the view.
 		navigationItem.hidesBackButton = true
 		
 		self.filteredUsers.append(contentsOf: users)
@@ -38,19 +37,7 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 	
 	@IBAction func disconnectBtn(_ sender: UIButton) {
 		StorageManager.clearStorage()
@@ -96,6 +83,7 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
 			self.filteredUsers = []
 			self.filteredUsers.append(contentsOf: self.users)
 			
+			// Reload data for display thread
 			DispatchQueue.main.async(execute: {
 				self.tableView.reloadData()
 			})

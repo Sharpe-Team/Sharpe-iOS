@@ -35,10 +35,10 @@ class LoginViewController: UIViewController {
 			self.errorLabel.text = ""
 			SwiftSpinner.show("Authentification en cours")
 			
-            LoginRetriever().login(username: username!, password: password!, callback: { (isConnected, token, message) in
+            LoginRetriever().login(username: username!, password: password!, callback: { (token, message) in
 				SwiftSpinner.hide()
 				
-				if(isConnected) {
+				if(token != nil) {
 					StorageManager.storeToken(token: token!)
 					SocketIOManager.sharedInstance.login(token: token!)
 					

@@ -62,7 +62,7 @@ class User: NSObject, NSCoding, SocketData {
 			"firstname": firstname,
 			"lastname": lastname,
 			"email": email,
-			"profilePicture": profilePicture,
+			"profilePicture": profilePicture ?? "",
 			"admin": admin
 		]
 	}
