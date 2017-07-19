@@ -45,7 +45,6 @@ class SocketIOManager: NSObject {
 	func login(token: String) {
 		socket.emitWithAck("login", token).timingOut(after: 2) { (data) in
 			if(!(data[0] is String && (data[0] as! String) == SocketAckStatus.noAck.rawValue)) {
-				print("BEFORE STORE USER\n")
 				let userObj = data[0] as! Dictionary<String, AnyObject>
 				StorageManager.storeUser(user: User(object: userObj))
 			}
@@ -57,7 +56,7 @@ class SocketIOManager: NSObject {
 			SwiftSpinner.hide()
 			
 			// If ack from server, get the user from ack and redirect to UserViewController => No need to reconnect
-			if(!(data[0] is String && (data[0] as! String) == SocketAckStatus.noAck.rawValue)) {
+			if(!(data[0] is NSNull) && !(data[0] is String && (data[0] as! String) == SocketAckStatus.noAck.rawValue)) {
 				
 				let userObj = data[0] as! Dictionary<String, AnyObject>
 				StorageManager.storeUser(user: User(object: userObj))
